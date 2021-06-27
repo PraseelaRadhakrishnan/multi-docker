@@ -5,20 +5,20 @@ services:
   - docker
 
 before_install:
-  - docker build -t praseela/react-test -f ./client/Dockerfile.dev ./client
+  - docker build -t praseela23/react-test -f ./client/Dockerfile.dev ./client
 
 script:
-  - docker run -e CI=true praseela/react-test npm test
+  - docker run -e CI=true praseela23/react-test npm test
 
 after_success:
-  - docker build -t praseela/multi-client ./client
-  - docker build -t praseela/multi-nginx ./nginx
-  - docker build -t praseela/multi-server ./server
-  - docker build -t praseela/multi-worker ./worker
+  - docker build -t praseela23/multi-client ./client
+  - docker build -t praseela23/multi-nginx ./nginx
+  - docker build -t praseela23/multi-server ./server
+  - docker build -t praseela23/multi-worker ./worker
   # Log in to the docker CLI
   - echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_ID" --password-stdin
   # Take those images and push them to docker hub
-  - docker push praseela/multi-client
-  - docker push praseela/multi-nginx
-  - docker push praseela/multi-server
-  - docker push praseela/multi-worker
+  - docker push praseela23/multi-client
+  - docker push praseela23/multi-nginx
+  - docker push praseela23/multi-server
+  - docker push praseela23/multi-worker
