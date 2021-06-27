@@ -22,7 +22,7 @@ after_success:
   - docker push praseela23/multi-nginx
   - docker push praseela23/multi-server
   - docker push praseela23/multi-worker
-  deploy:
+deploy:
       provider: elasticbeanstalk
       region: 'ap-south-1'
       app: 'multi-docker'
